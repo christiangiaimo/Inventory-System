@@ -1,0 +1,44 @@
+[
+    {
+        "family":"Alimentos",
+        "name":"Cebolla",
+        "cost":10,
+        "unit":"Kg",
+        "quantity":75
+    },
+    {
+        "family":"Mamalo",
+        "name":"Chupalo_Andres",
+        "cost":"Tu culo",
+        "unit":"Ano",
+        "quantity":5
+    },
+    {
+        "family":"ALIMENTOS",
+        "name":"ZANAHORIA",
+        "cost":2,
+        "unit":"KG",
+        "quantity":1
+    },
+    {
+        "family":"ALIMENTOS",
+        "name":"TOMILLO",
+        "cost":2,
+        "unit":"KG",
+        "quantity":1
+    },
+    {
+        "family":"ALIMENTOS",
+        "name":"TOMATE",
+        "cost":2,
+        "unit":"KG",
+        "quantity":1
+    },
+    {
+        "family":"BEBIDAS",
+        "name":"RON ",
+        "cost":32,
+        "unit":"LT",
+        "quantity":1
+    }
+]
