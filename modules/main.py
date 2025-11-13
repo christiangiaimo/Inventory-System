@@ -51,7 +51,7 @@ def bottom_toolbar():
        
 
 if __name__ == '__main__':
-      second_input(completer,style,bottom_toolbar())
+    main_loop(completer,style,bottom_toolbar())
 
                      
     # this prints the data of the dataframe

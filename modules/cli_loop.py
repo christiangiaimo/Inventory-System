@@ -40,6 +40,23 @@ def first_input():
     return first_input
 
 
+def third_input(product_name):
+     options = [("cost","cost"),
+     ('quantity',"quantity"),
+     ('show_all',"show all"),
+     ('purchase',"purchase"),
+     ('sell',"sell"),
+     ("exit","exit")]
+     
+     third_input = choice(
+          message = "Please choose an option",
+          options = options,
+          default = "exit")
+     return third_input
+
+     
+
+
 
 
 def cli_loop(completer, style,bottom_toolbar):
@@ -58,20 +75,28 @@ def cli_loop(completer, style,bottom_toolbar):
 
         text_parts = text.split()
         product_name = text_parts[0]
-        product_data = inv_data.searh_products(product_name) 
+        product_data = inv_data.searh_products(product_name)
+        if text == "exit":
+            inv_data.export_json()
+            cash_flow.export_cash_flow_json()
+            return
+
+        option = third_input(product_name)   
+        
+
 
 
         # This is the search part, it asks for search
         #In this fisrt part it functions with the show all option
-        match text_parts:    
+        match option:    
             
-            case [_,'show_all']: 
+            case 'show_all': 
                     print ("\n" + "="*50)
                     print(f"searched product: {text}")
                     print("=" * 50)
                     print(product_data.to_string(index= False))
 
-            case [_,"cost"]:
+            case "cost":
                     
                     cost = product_data['cost'].iloc[0]
                     print("\n" + "="*50)  
@@ -79,7 +104,7 @@ def cli_loop(completer, style,bottom_toolbar):
                     print ("="*50)       
                     print(f"product cost: {cost}")
 
-            case[_,"quantity"]:
+            case "quantity":
                     quantity = product_data['quantity'].iloc[0]
                     print("\n" + "="*50)  
                     print(f"searched product: {text}")
@@ -87,7 +112,7 @@ def cli_loop(completer, style,bottom_toolbar):
                     print(f"product quantity: {quantity}")
 
 
-            case[_,'Purchase']:
+            case 'Purchase':
                 #quantity_prompt = prompt("Update quantity: ")
                 #added_quantity = quantity_prompt
                 quantity = product_data['quantity'].iloc[0]
@@ -101,7 +126,7 @@ def cli_loop(completer, style,bottom_toolbar):
                 print ("="*50)       
                 print(f"changed stock product to: {quantity}")
 
-            case[_,'purchase']:
+            case 'purchase':
                 quantity = product_data['quantity'].iloc[0]
                 new_qty = int(dialog_window())
                 cost = int(add_new_dialog_cost_window())
@@ -114,7 +139,7 @@ def cli_loop(completer, style,bottom_toolbar):
 
 
 
-            case[_,'sell']:
+            case 'sell':
                 quantity = product_data['quantity'].iloc[0]
                 sell_qty = int(add_new_dialog_sell_window())
                 cost = int(add_new_dialog_cost_window())
@@ -127,7 +152,7 @@ def cli_loop(completer, style,bottom_toolbar):
 
 
 
-            case['add_new']:
+            case 'add_new':
                 family = (add_new_dialog_fam_window())
                 name = (add_new_dialog_name_window())
                 msr = (add_new_dialog_unit_window())
@@ -139,10 +164,10 @@ def cli_loop(completer, style,bottom_toolbar):
                 print("\n" + "="*50)  
                 print(f"Created new product: {name}")
 
-            case['exit']:
+            case 'exit':
                 inv_data.export_json()
                 cash_flow.export_cash_flow_json()
-                second_input(completer,style,bottom_toolbar)
+                return
                  
 
 
@@ -170,8 +195,10 @@ def second_input(completer,style,bottom_toolbar):
      match first_ipt:
           case "Search":
                cli_loop(completer,style,bottom_toolbar)
+               return False
           case  "Show_cash_flow":
                show_cash_flow()
+               return False
           case "New":
                 family = (add_new_dialog_fam_window())
                 name = (add_new_dialog_name_window())
@@ -183,12 +210,24 @@ def second_input(completer,style,bottom_toolbar):
                 inv_data.load_json()
                 print("\n" + "="*50)  
                 print(f"Created new product: {name}")
-          case "exit":
-               exit
+                return False
+          case "Exit":
+               return True
+          
+     return False
+
 
                     
-                     
+def main_loop(completer, style, bottom_toolbar):
+    while True:
+        should_exit = second_input(completer,style,bottom_toolbar)
+        if should_exit:
+            exit_program()
+            break              
 
 
-
+def exit_program():
+    inv_data.export_json()
+    cash_flow.export_cash_flow_json()
+    print("Saved data, exiting program...")
 
