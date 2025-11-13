@@ -1,8 +1,8 @@
 from inventory import *
 from product import *
-from prompt_toolkit import print_formatted_text, prompt
+
 from prompt_toolkit.completion import FuzzyWordCompleter, NestedCompleter
-from prompt_toolkit.shortcuts import choice
+
 from prompt_toolkit.styles import Style
 from prompt_toolkit.formatted_text import HTML
 from inventory_validator import *
@@ -54,15 +54,8 @@ if __name__ == '__main__':
     main_loop(completer,style,bottom_toolbar())
 
                      
-    # this prints the data of the dataframe
-    #elif:
-     #   print("Error: Product not found after validation")    
 
 
-
-
-
-#print(f"You said: {text}")
 
 
 

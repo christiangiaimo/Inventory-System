@@ -12,11 +12,7 @@ class inventory:
         self.full_path = filepath
         self.inventory = self.load_json()
                
-        #self.inventory = pd.DataFrame({'family':['Alimentos','Mamalo'],
-         #                             'name':['Cebolla','Chupalo_Andres'],
-          #                            'cost':[10,'Tu culo'],
-           #                           'unit':['Kg','Ano'],
-            #                          'quantity':[10,5]})
+        
 
 
     def load_json(self):

@@ -17,6 +17,7 @@ example_style = Style.from_dict({
   #--- Fondo Azul Brillante, Texto Blanco, Negrita.
     'button.focused': 'bg:#007ACC fg:#FFFFFF bold', 
     
+
 })
 
 

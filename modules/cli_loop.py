@@ -4,30 +4,15 @@ from data_converter import *
 from prompts import *
 from cash_flow import *
 from main import cash_flow,completer,style,bottom_toolbar
-from prompt_toolkit.styles import Style
 
-#style_from_dict = Style.from_dict(
- #   {
-  #      # Default style.
-   #     "": "#ff0066",
-    #   # Prompt.
-     #   "username": "#884444 italic",
-      #  "at": "#00aa00",
-       # "colon": "#00aa00",
-        #"pound": "#00aa00",
-       
-       # "host": "#000088 bg:#aaaaff",
-        #"path": "#884444 underline",
-        #"pygments.comment": "#888888 bold",
-        #"ygments.keyword": "#ff88ff bold",
-        # Make a selection reverse/underlined.
-        # (Use Control-Space to select.)
-       # "selected-text": "reverse underline",
-    #}
-#)
+from prompt_toolkit.shortcuts import choice
+from prompt_toolkit.completion import FuzzyWordCompleter
+from prompt_toolkit import prompt
 
 
-#This ask the first question to the user
+
+
+
 def first_input():
     first_input = choice(
     message = "Please choose an option",
@@ -184,9 +169,7 @@ def exit() :
     exit                 
                             
 
-            #case['add_new']:
-            #      if len(text_parts) > 1:
-            #         inv_data.insert_product(text_parts[1])
+    
 
 
 
