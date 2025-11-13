@@ -11,6 +11,9 @@ from product import *
 
 inv_data = inventory()
 options = inv_data.inventory['name'].tolist()
+
+   
+
 #Shows the list of the names in the inventory
 
 PROPERTIES = {
@@ -28,13 +31,9 @@ nested_options = {}
 for name in options:
     nested_options[name] = PROPERTIES
 
-final_completer_dict = {
-    'search':nested_options,
-    'show_cash_flow':None,
-    'add_new': None,
-    'exit': None,
-    
-}    
+nested_options['exit'] = None
+
+final_completer_dict = nested_options
 
 class InventoryValidator(Validator):
     def __init__(self, valid_names):

@@ -14,17 +14,15 @@ class Cash_Flow():
        
         
     def add_income(self,amount):
-        income_data = self.cash_flow.iloc[0,1]
-        total_data = self.cash_flow.iloc[0,-1]
-        income_data += amount
-        total_data += amount
 
+        self.cash_flow.iloc[0,0] += amount
+        self.cash_flow.iloc[0,-1] += amount
+        
     
     def add_expense(self,amount):
-        expense_data = self.cash_flow.iloc[0,1]
-        total_data = self.cash_flow.iloc[0,-1]
-        expense_data += amount
-        total_data -= amount
+        self.cash_flow.iloc[0,1] += amount
+        self.cash_flow.iloc[0,-1] -= amount
+        
         
 
     def load_cash_flow_json(self):

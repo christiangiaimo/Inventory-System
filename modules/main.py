@@ -12,9 +12,13 @@ from cli_loop import *
 from cash_flow import *
 
 
+
+
 inv_data = inventory()
 cash_flow = Cash_Flow()
 options = inv_data.inventory['name'].tolist()
+
+
 
 
 validator = FuzzyWordCompleter(options)
@@ -39,7 +43,7 @@ style = Style.from_dict(
 
 
 def bottom_toolbar():
-    return(HTML(f" Press <b>[Up]</b>/<b>[Down]</b> to select, <b>[Enter]</b> to accept. Options are: {list(final_completer_dict.keys())}"))
+    return(HTML(f" Press <b>[Up]</b>/<b>[Down]</b> to select, <b>[Enter]</b> to accept. Options are: {f"{list(final_completer_dict.keys())[0:3]},etc"}, exit"))
 
                         
 
@@ -47,7 +51,7 @@ def bottom_toolbar():
        
 
 if __name__ == '__main__':
-      cli_loop(completer,style,bottom_toolbar())
+      second_input(completer,style,bottom_toolbar())
 
                      
     # this prints the data of the dataframe

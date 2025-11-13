@@ -92,9 +92,9 @@ class inventory:
         print(f"Succesfully change {name} quantity to {new_quantity}")
 
 
-    def product_sell(self, name, amount):
+    def product_sell(self, name, amount, cost):
         target_index = self.inventory.index[self.inventory['name'] == name]
-
+        
         if target_index.empty:
             print(f"Error: Item {name} not found") 
             return

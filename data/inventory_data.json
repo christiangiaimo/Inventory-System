@@ -4,14 +4,14 @@
         "name":"Cebolla",
         "cost":10,
         "unit":"Kg",
-        "quantity":75
+        "quantity":27
     },
     {
         "family":"Mamalo",
         "name":"Chupalo_Andres",
         "cost":"Tu culo",
         "unit":"Ano",
-        "quantity":5
+        "quantity":0
     },
     {
         "family":"ALIMENTOS",
@@ -32,7 +32,7 @@
         "name":"TOMATE",
         "cost":2,
         "unit":"KG",
-        "quantity":1
+        "quantity":11
     },
     {
         "family":"BEBIDAS",
